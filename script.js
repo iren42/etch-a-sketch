@@ -1,12 +1,13 @@
-const MAXSIZE = 100;
-const DEFAULTSIZE = 16;
+const	MAXSIZE = 100;
+const	DEFAULTSIZE = 16;
+const	COLOR = "black";
 
 const	resizeBtn = document.querySelector("#resize");
 const	body = document.querySelector("body");
 
-function createGrid(size = DEFAULTSIZE)
+function	createGrid(size = DEFAULTSIZE)
 {
-	const container = document.createElement("div");
+	const	container = document.createElement("div");
 	container.classList.add("container");
 
 	body.append(container);
@@ -26,15 +27,26 @@ function createGrid(size = DEFAULTSIZE)
 			row.append(col);
 
 			col.addEventListener("mouseover", (event) => {
-				col.style.backgroundColor = "blue";
+				if (col.style.backgroundColor === COLOR && col.style.opacity != 1)
+				{
+					col.style.opacity = +col.style.opacity + 0.1;
+				}
+				else if (col.style.backgroundColor !== COLOR)
+				{
+					col.style.backgroundColor = COLOR;
+					col.style.opacity = "0.1";
+				}
+				else
+					;
+				console.log(col.style.opacity);
 			});
 		}
 	}
 }
 
-function eraseGrid()
+function	eraseGrid()
 {
-	const container = document.querySelector(".container");
+	const	container = document.querySelector(".container");
 	if (container.parentNode)
 	{
 		container.parentNode.removeChild(container);
