@@ -22,8 +22,11 @@ function createGrid()
 			const	col = document.createElement("div");
 			col.classList.add("square");
 			row.append(col);
+
+			col.addEventListener("mouseover", (event) => {
+				col.style.backgroundColor = "blue";
+			});
 		}
 	}
 }
-
 createGrid();
