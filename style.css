@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.row {
+	display: flex;
+}
+
+.square {
+	height: 40px;
+	width: 40px;
+	background-color: orange;
+	flex-shrink: 0;
+}
+
