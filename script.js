@@ -42,10 +42,25 @@ function eraseGrid()
 	}
 }
 
+function	isValid(size)
+{
+	if (size <= 100 && size > 1)
+		return (true);
+	return (false);
+}
+
 resizeBtn.addEventListener("click", event => {
-	let	size = prompt("Enter new dimensions: ", "16");
-	eraseGrid();
-	createGrid(size);
+	let	sizeStr = prompt("Enter new dimensions: ", "16");
+	let	size = parseInt(sizeStr);
+	if (isValid(size))
+	{
+		eraseGrid();
+		createGrid(size);
+	}
+	else
+	{
+		console.log("You wrote: '" + sizeStr + "', it's not a valid number.");
+	}
 });
 
 createGrid();
